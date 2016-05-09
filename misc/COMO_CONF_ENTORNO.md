@@ -4,12 +4,6 @@
 
 - Descargar la última versión de NodeJS (MSI para Windows). 
 	- https://nodejs.org/en/download/current/
-- Configurar variables de entorno:
-```
-NODE_HOME=RUTA_NODE
-PATH=%PATH%;%NODE_HOME%\bin
-```
-Nota: Añada las variables de entorno para el usuario
 
 ## Instalar Git
 
@@ -18,8 +12,12 @@ Nota: Añada las variables de entorno para el usuario
 	- Al instalar seleccionar: Use Git from Windows Command Prompt
 - Configurar GIT para utilizar HTTP en lugar de HTTPS
 ```
-> git config --global url."https://".insteadOf git://
+> git config --global url."http://".insteadOf https://
 ```
+
+## Configurar proxy
+
+- Añadir la variable de entorno: `http_proxy=http://PROXY_HOST:PROXY_PORT`
 
 ## Probar
 
