@@ -19,12 +19,23 @@
 
 - Añadir la variable de entorno: `http_proxy=http://PROXY_HOST:PROXY_PORT`
 
+## Instalar Bower (global)
+
+- Ejecutar el siguiente comando:
+```
+> npm install -g bower
+```
+
 ## Probar
 
 - Para probar que el node ha sido configurado correctamente, ejecutar:
-`node --version`
+`npm --version`
 - Para probar que el git ha sido configurado correctamente, ejecutar:
 `git --version`
+- Para probar que el bower ha sido configurado correctamente, ejecutar:
+`bower --version`
+
+# Ejecutando frontend
 
 ## Clonar Angular Seed
 
@@ -32,6 +43,16 @@
 ```
 > git clone https://github.com/angular/angular-seed.git
 ```
+
+## Constuir proyecto
+
+- Ejecutar en una consola:
+```
+> npm start
+```
+
+- Abrir en un navegador: http://localhost:8000/app
+
 
 
 
