@@ -16,6 +16,10 @@ Nota: Añada las variables de entorno para el usuario
 - Descargar la última versión de Git
 	- https://git-scm.com/download/win
 	- Al instalar seleccionar: Use Git from Windows Command Prompt
+- Configurar GIT para utilizar HTTP en lugar de HTTPS
+```
+> git config --global url."https://".insteadOf git://
+```
 
 ## Probar
 
@@ -23,5 +27,21 @@ Nota: Añada las variables de entorno para el usuario
 `node --version`
 - Para probar que el git ha sido configurado correctamente, ejecutar:
 `git --version`
+
+## Clonar Angular Seed
+
+- Abrir una consola y clonar el repo de Angular Seed
+```
+> git clone https://github.com/angular/angular-seed.git
+```
+
+
+
+
+
+
+
+
+
 
 
