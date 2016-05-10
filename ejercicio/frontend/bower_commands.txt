@@ -1,0 +1,4 @@
+ bower install jquery#1.12.2 --save
+ bower install bootstrap --save
+ bower install angular --save
+ bower install angular-route --save
