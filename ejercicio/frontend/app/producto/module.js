@@ -7,7 +7,7 @@ var closure = function() {
 			$routeProvider
 				.when('/producto', {
 					templateUrl: 'producto/view/index.html',
-					controller: 'ProductoCtrl'
+					controller: 'producto.ProductoCtrl'
 				});
 
 		});

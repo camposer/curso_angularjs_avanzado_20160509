@@ -2,8 +2,8 @@
 
 	angular
 		.module('producto')
-		.controller('ProductoCtrl', 
-			[  '$rootScope', '$scope', 'ProductoService',  ProductoCtrl ]);
+		.controller('producto.ProductoCtrl', 
+			[  '$rootScope', '$scope', 'producto.ProductoService',  ProductoCtrl ]);
 
 	function ProductoCtrl($rootScope, $scope, productoService) {
 		$scope.producto = {} // enlazado con el form (opcional)

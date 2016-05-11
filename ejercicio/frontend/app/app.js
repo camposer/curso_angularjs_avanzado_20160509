@@ -2,17 +2,10 @@
 	angular
 		.module('app', [ 
 			'producto',
+			'tienda',
 			'ngRoute' 
 		])
 		.config(function($routeProvider) {
-			$routeProvider
-				.when('/inicio', {
-					templateUrl: 'inicio.html',
-					controller: [ '$rootScope', function($rootScope) {
-						$rootScope.mensaje = 'Inicio';
-					}]
-				});
-
-			$routeProvider.otherwise('/inicio');
+			$routeProvider.otherwise('/catalogo');
 		});	
 })();

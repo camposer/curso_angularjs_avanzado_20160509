@@ -1,0 +1,28 @@
+<div class="text-right">Mensaje: {{rootScope.mensaje}}</div>
+
+<h1>Catálogo de productos</h1>
+
+<div class="alert alert-danger" ng-show="error.length > 0">
+  <ul>
+    <li ng-repeat="e in error">{{e}}</li>
+  </ul>
+</div>
+
+<table id="tabla-productos" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Cantidad</th>
+		</tr>
+	</thead>
+	<tbody>
+    <tr ng-repeat="p in productos">
+      <td>{{::p.nombre}}</td>
+      <td>{{::p.precio}}</td>
+      <td><input type="number" ng-model="p.cantidad"></td>
+    </tr>
+	</tbody>
+</table>
+
+<button type="button" ng-click="agregar()">Agregar</button>

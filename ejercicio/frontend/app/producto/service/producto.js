@@ -1,7 +1,7 @@
 (function() {
 	angular
 		.module('producto')
-		.service('ProductoService', 
+		.service('producto.ProductoService', 
 			[ '$http', ProductoService ]);
 
 	function ProductoService($http) {

@@ -1,0 +1,32 @@
+<div class="text-right">Mensaje: {{rootScope.mensaje}}</div>
+
+<h1>Carrito de productos</h1>
+
+<div class="alert alert-danger" ng-show="error.length > 0">
+  <ul>
+    <li ng-repeat="e in error">{{e}}</li>
+  </ul>
+</div>
+
+<table id="tabla-productos" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Cantidad</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+	    <tr ng-repeat="p in carrito.productos">
+	      <td>{{::p.nombre}}</td>
+	      <td>{{::p.precio}}</td>
+	      <td>{{::p.cantidad}}</td>
+	      <td>{{p.getTotal()}}</td>
+	    </tr>
+	    <tr>
+	    	<td colspan="3" class="text-right">Total</td>
+	    	<td>{{carrito.getTotal()}}</td>
+	    </tr>
+	</tbody>
+</table>
