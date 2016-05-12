@@ -16,11 +16,29 @@ Ejecutar en el navegador la URL: `http://localhost:8000/app`
 
 1.- Crear la estructura del proyecto utilizando [Angular-Seed](https://github.com/angular/angular-seed) e importar el proyecto creado en el [curso básico de AngularJS](https://github.com/camposer/curso_angularjs_20160330)
 
-2.- Implementar la tienda (ver `ejercicio.pdf`). Para almacenar los productos en el carrito utilizar el localStorage, ver: https://github.com/gsklee/ngStorage
+2.- Implementar la tienda (ver `ejercicio.pdf`). 
+- Para almacenar los productos en el carrito utilizar el localStorage, ver: https://github.com/gsklee/ngStorage
+- Al finalizar la compra deberá llamar a la API Rest e incluir un gráfico de tarta que muestre el total de compras por producto, ver: http://jtblin.github.io/angular-chart.js/
+```
+GET /compras
+POST /compras
+{
+	"productoId": 1,
+	"nombre": "TV",
+	"cantidad": 2
+}
+
+POST /compras
+{
+	"productoId": 2,
+	"nombre": "DVD",
+	"cantidad": 3
+}
+```
 
 3.- Implementar una directiva para el manejo de mensajes de error. El resultado debe ser algo como:
 ```
-	<mensaje src="ctrl.mensaje"></mensaje>
+<mensaje src="ctrl.mensaje"></mensaje>
 ```
 
 4.- Implementar una animación para que cada vez que se agregue un elemento nuevo a la lista se muestre "lentamente". Ver ejemplo de ng-repeat en documentación.
