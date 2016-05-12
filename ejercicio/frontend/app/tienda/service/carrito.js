@@ -29,18 +29,16 @@
 
 		this.obtenerTodos = function() {
 			var carrito = {
+				total: 0,
 				productos: storage.carrito
 			};
 
-			// añadiendo comportamiento a los objetos almacenados
-			var total = 0;
+			// añadiendo totales al carrito y sus productos
 			for (var i in carrito.productos) {
 				var p = carrito.productos[i];
 				p.total = p.precio * p.cantidad;
-				total +=  p.total;
+				carrito.total +=  p.total;
 			}
-
-			carrito.total = total;
 
 			return carrito;
 		};
