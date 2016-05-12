@@ -19,7 +19,9 @@ Ejecutar en el navegador la URL: `http://localhost:8000/app`
 2.- Implementar la tienda (ver `ejercicio.pdf`). Para almacenar los productos en el carrito utilizar el localStorage, ver: https://github.com/gsklee/ngStorage
 
 3.- Implementar una directiva para el manejo de mensajes de error. El resultado debe ser algo como:
+```
 	<mensaje src="ctrl.mensaje"></mensaje>
+```
 
 4.- Implementar una animación para que cada vez que se agregue un elemento nuevo a la lista se muestre "lentamente". Ver ejemplo de ng-repeat en documentación.
 

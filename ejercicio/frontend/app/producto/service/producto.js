@@ -2,10 +2,9 @@
 	angular
 		.module('producto')
 		.service('producto.ProductoService', 
-			[ '$http', ProductoService ]);
+			[ 'BASE_URL', '$http', ProductoService ]);
 
-	function ProductoService($http) {
-		var BASE_URL = 'http://localhost:3000/productos';
+	function ProductoService(BASE_URL, $http) {
 
 		this.obtenerTodos = function(success, error) {
 			$http.get(BASE_URL).then(success, error);
