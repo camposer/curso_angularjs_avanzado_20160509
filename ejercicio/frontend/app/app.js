@@ -3,7 +3,7 @@
 		.module('app', [ 
 			'producto',
 			'tienda',
-			'ngRoute' 
+			'ngRoute'
 		])
 		.config(function($routeProvider) {
 			$routeProvider.otherwise('/catalogo');

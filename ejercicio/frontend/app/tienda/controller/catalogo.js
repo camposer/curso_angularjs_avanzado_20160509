@@ -3,9 +3,9 @@
 	angular
 		.module('tienda')
 		.controller('tienda.CatalogoCtrl', 
-			[  '$scope', 'producto.ProductoService', 'tienda.CarritoService', CatalogoCtrl ]);
+			[  '$scope', '$location', 'producto.ProductoService', 'tienda.CarritoService', CatalogoCtrl ]);
 
-	function CatalogoCtrl($scope, productoService, carritoService) {
+	function CatalogoCtrl($scope, $location, productoService, carritoService) {
 		$scope.productos = []; // enlazado con la tabla (opcional)
 
 		var listar = function() {
@@ -23,8 +23,12 @@
 				var p = $scope.productos[i];
 
 				if (angular.isNumber(p.cantidad) &&
-						p.cantidad > 0) 
+						p.cantidad > 0) {
+
 					carritoService.agregar(p);
+					$location.path('/carrito');
+				}
+
 			}
 		};
 	}

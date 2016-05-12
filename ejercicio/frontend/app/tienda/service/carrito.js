@@ -1,18 +1,18 @@
 (function() {
 	angular
 		.module('tienda')
-		.service('tienda.CarritoService', [ '$rootScope', CarritoService ]);
+		.service('tienda.CarritoService', [ '$sessionStorage', CarritoService ]);
 
-	function CarritoService($rootScope) {
+	function CarritoService(storage) {
 		this.agregar = function(p) {
 			var encontrado = false;
 
-			if (!$rootScope.carrito) 
-				$rootScope.carrito = [];
+			if (!storage.carrito) 
+				storage.carrito = [];
 
-			for (var i in $rootScope.carrito) {
+			for (var i in storage.carrito) {
 				var productoEnCarrito = 
-					$rootScope.carrito[i];
+					storage.carrito[i];
 
 				if (p.id == productoEnCarrito.id) {
 					productoEnCarrito.cantidad += p.cantidad;
@@ -23,27 +23,24 @@
 
 			if (!encontrado) {
 				var pNew = angular.copy(p);
-				pNew.getTotal = function() {
-					return this.precio * this.cantidad;
-				};
-				
-				$rootScope.carrito.push(pNew);
+				storage.carrito.push(pNew);
 			}
 		};
 
 		this.obtenerTodos = function() {
 			var carrito = {
-				productos: $rootScope.carrito
+				productos: storage.carrito
 			};
 
-			carrito.getTotal = function() {
-				var total = 0;
+			// añadiendo comportamiento a los objetos almacenados
+			var total = 0;
+			for (var i in carrito.productos) {
+				var p = carrito.productos[i];
+				p.total = p.precio * p.cantidad;
+				total +=  p.total;
+			}
 
-				for (var i in this.productos) 
-					total += this.productos[i].getTotal();
-
-				return total;
-			};
+			carrito.total = total;
 
 			return carrito;
 		};

@@ -2,7 +2,7 @@
 
 var closure = function() {
 	angular
-		.module('producto', [ 'ngRoute' ])
+		.module('producto', [ 'ngRoute', 'ngStorage' ])
 		.config(function($routeProvider) {
 			$routeProvider
 				.when('/producto', {
