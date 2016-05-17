@@ -42,6 +42,10 @@
 
 			return carrito;
 		};
+
+		this.limpiar = function() {
+			delete storage.carrito;
+		};
 	}
 
 })();

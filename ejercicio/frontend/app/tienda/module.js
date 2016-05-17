@@ -12,6 +12,10 @@
 				.when('/carrito', {
 					templateUrl: 'tienda/view/carrito.html',
 					controller: 'tienda.CarritoCtrl'
+				})
+				.when('/reporte', {
+					templateUrl: 'tienda/view/reporte.html',
+					controller: 'tienda.ReporteCtrl'
 				});
 
 		});
