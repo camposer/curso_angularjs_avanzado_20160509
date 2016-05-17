@@ -2,7 +2,7 @@
 
 (function() {
 	angular
-		.module('tienda', [ 'ngRoute' ])
+		.module('tienda', [ 'ngRoute', 'chart.js' ])
 		.config(function($routeProvider) {
 			$routeProvider
 				.when('/catalogo', {

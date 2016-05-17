@@ -15,11 +15,11 @@
 					'Content-Type': 'application/json'
 				}
 			}).then(success, error);
-		}
+		};
 
 		this.obtenerCompras = function(success, error) {
-			$http.get(BASE_URL + '/compras', success, error);
-		}
+			$http.get(BASE_URL + '/compras').then(success, error);
+		};
 	}
 
 })();
