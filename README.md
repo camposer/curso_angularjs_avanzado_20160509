@@ -16,7 +16,7 @@
 		- https://github.com/angular-ui/ui-router
 		- http://stackoverflow.com/questions/21023763/difference-between-angular-route-and-angular-ui-router
 	- Animaciones
-		- https://docs.angularjs.org/guide/animations
+		- https://docs.angularjs.org/api/ngAnimate
 		- http://www.nganimate.org
 - Servidor (Patrones y recursos)
 	- Promise ($q)
