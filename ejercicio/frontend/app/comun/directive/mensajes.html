@@ -1,0 +1,13 @@
+<div class="alert alert-danger" ng-show="detalle.error.length > 0">
+  <ul>
+  	<li>Tienes {{detalle.error.length}} mensajes de error</li>
+  	<li ng-repeat="d in detalle.error">{{d}}</li>
+  </ul>
+</div>
+
+<div class="alert alert-success" ng-show="detalle.satisfactorio.length > 0">
+  <ul>
+  	<li>Tienes {{detalle.satisfactorio.length}} mensajes de éxito</li>
+  	<li ng-repeat="d in detalle.satisfactorio">{{d}}</li>
+  </ul>
+</div>

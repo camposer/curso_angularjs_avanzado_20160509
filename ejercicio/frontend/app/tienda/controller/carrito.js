@@ -6,12 +6,6 @@
 			[  '$scope', 'tienda.CarritoService', 'tienda.CompraService', CarritoCtrl ]);
 
 	function CarritoCtrl($scope, carritoService, compraService) {
-		var init = function() {
-			$scope.carrito = carritoService.obtenerTodos();
-		};
-
-		init();
-
 		$scope.comprar = function() {
 			// TODO Implementar success y error
 			var productos = carritoService.obtenerTodos().productos;

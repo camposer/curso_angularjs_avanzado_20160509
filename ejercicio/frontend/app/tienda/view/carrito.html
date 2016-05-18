@@ -2,33 +2,8 @@
 
 <h1>Carrito de productos</h1>
 
-<div class="alert alert-danger" ng-show="error.length > 0">
-  <ul>
-    <li ng-repeat="e in error">{{e}}</li>
-  </ul>
-</div>
+<mensajes src="error"></mensajes>
 
-<table id="tabla-productos" class="table table-striped">
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Precio</th>
-			<th>Cantidad</th>
-			<th>Total</th>
-		</tr>
-	</thead>
-	<tbody>
-	    <tr ng-repeat="p in carrito.productos">
-	      <td>{{::p.nombre}}</td>
-	      <td>{{::p.precio}}</td>
-	      <td>{{::p.cantidad}}</td>
-	      <td>{{::p.total}}</td>
-	    </tr>
-	    <tr>
-	    	<td colspan="3" class="text-right">Total</td>
-	    	<td>{{::carrito.total}}</td>
-	    </tr>
-	</tbody>
-</table>
+<carrito-compras></carrito-compras>
 
 <button type="button" ng-click="comprar()">Comprar</button>

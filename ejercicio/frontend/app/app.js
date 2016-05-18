@@ -1,9 +1,11 @@
 (function() {
 	angular
 		.module('app', [ 
+			'comun',
 			'producto',
 			'tienda',
-			'ngRoute'
+			'ngRoute',
+			'ngAnimate'
 		])
 		.config(function($routeProvider) {
 			$routeProvider.otherwise('/catalogo');

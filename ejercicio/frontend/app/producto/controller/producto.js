@@ -3,9 +3,9 @@
 	angular
 		.module('producto')
 		.controller('producto.ProductoCtrl', 
-			[  '$rootScope', '$scope', 'producto.ProductoService',  ProductoCtrl ]);
+			[  '$rootScope', '$scope', 'producto.ProductoService', 'comun.MensajesFactory', ProductoCtrl ]);
 
-	function ProductoCtrl($rootScope, $scope, productoService) {
+	function ProductoCtrl($rootScope, $scope, productoService, MensajesFactory) {
 		$scope.producto = {} // enlazado con el form (opcional)
 		$scope.productos = []; // enlazado con la tabla (opcional)
 
@@ -31,26 +31,27 @@
 		}
 
 		$scope.guardar = function(form) {
-			$scope.error = [];
+			$scope.mensajes = MensajesFactory.createMensaje();
 
 			if (form.nombre.$invalid)
-				$scope.error.push('Nombre inválido');
+				$scope.mensajes.error.push('Nombre inválido');
 
 			if (form.precio.$invalid || 
 					$scope.producto.precio <= 0) {
 
 				form.precio.$invalid = true;
-				$scope.error.push('Precio inváildo');
+				$scope.mensajes.error.push('Precio inváildo');
 			}
 
-			if ($scope.error.length == 0) {
+			if ($scope.mensajes.error.length == 0) {
 				var success = function() {
 					$scope.producto = {};
 					listar();
+					$scope.mensajes.satisfactorio.push('Producto guardado');
 				};
 
 				var error = function() {
-					$scope.error.push('Ha ocurrido un error en el servidor');
+					$scope.mensajes.error.push('Ha ocurrido un error en el servidor');
 				}
 
 				if ($scope.producto.id) {
