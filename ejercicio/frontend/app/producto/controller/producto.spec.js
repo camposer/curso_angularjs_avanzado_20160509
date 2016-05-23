@@ -52,5 +52,42 @@ describe('Suite de pruebas para producto.ProductoCtrl...', function () {
     expect(scope.productos.length).toEqual(3);
   });
 
+  it('Cuando agrego un producto', function() {
+    var form = {
+      nombre: { $invalid: false },
+      precio: { $invalid: false }
+    };
+
+    // datos capturados por el formulario ng-model
+    scope.producto = {
+      nombre: 'nombre',
+      precio: 1
+    };
+
+    var numInicialProductos = scope.productos.length;
+    scope.guardar(form);
+    scope.$digest(); // para ver los cambios sobre el scope
+
+    expect(scope.producto).toEqual({});
+    expect(scope.productos.length).toEqual(numInicialProductos + 1);
+    expect(scope.mensajes.satisfactorio.length).toBeGreaterThan(0);
+  });
+
+  it('Cuando agrego un producto nombre y precio inválido', function() {
+    var form = {
+      nombre: { $invalid: true },
+      precio: { $invalid: true }
+    };
+
+    // datos capturados por el formulario ng-model
+    scope.producto = {
+      nombre: 'nombre',
+      precio: 0
+    };
+
+    scope.guardar(form);
+
+    expect(scope.mensajes.error.length).toEqual(2);
+  });
 
 });

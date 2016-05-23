@@ -5,8 +5,8 @@ module.exports = function(config){
 
     files : [
       // vendor
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular/angular.js', // requerida
+      'app/bower_components/angular-mocks/angular-mocks.js', // requerida
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/ngstorage/ngStorage.js',
 
