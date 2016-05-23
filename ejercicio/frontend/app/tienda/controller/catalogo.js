@@ -3,9 +3,9 @@
 	angular
 		.module('tienda')
 		.controller('tienda.CatalogoCtrl', 
-			[  '$scope', '$location', 'producto.ProductoService', 'tienda.CarritoService', CatalogoCtrl ]);
+			[  '$scope', '$state', 'producto.ProductoService', 'tienda.CarritoService', CatalogoCtrl ]);
 
-	function CatalogoCtrl($scope, $location, productoService, carritoService) {
+	function CatalogoCtrl($scope, $state, productoService, carritoService) {
 		$scope.productos = []; // enlazado con la tabla (opcional)
 
 		var listar = function() {
@@ -26,7 +26,7 @@
 						p.cantidad > 0) {
 
 					carritoService.agregar(p);
-					$location.path('/carrito');
+					$state.go('carrito');
 				}
 
 			}

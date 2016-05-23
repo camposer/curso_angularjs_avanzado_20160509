@@ -4,10 +4,11 @@
 			'comun',
 			'producto',
 			'tienda',
-			'ngRoute',
+			'ui.router',
 			'ngAnimate'
 		])
-		.config(function($routeProvider) {
-			$routeProvider.otherwise('/catalogo');
+		.config(function($urlRouterProvider, $locationProvider) {
+			//$locationProvider.html5Mode(true); // necesita mod-rewrite activado
+			$urlRouterProvider.otherwise('/catalogo');
 		});	
 })();

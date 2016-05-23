@@ -2,18 +2,21 @@
 
 (function() {
 	angular
-		.module('tienda', [ 'ngRoute', 'chart.js' ])
-		.config(function($routeProvider) {
-			$routeProvider
-				.when('/catalogo', {
+		.module('tienda', [ 'ui.router', 'chart.js' ])
+		.config(function($stateProvider) {
+			$stateProvider
+				.state('catalogo', {
+					url: '/catalogo',
 					templateUrl: 'tienda/view/catalogo.html',
 					controller: 'tienda.CatalogoCtrl'
 				})
-				.when('/carrito', {
+				.state('carrito', {
+					url: '/carrito',
 					templateUrl: 'tienda/view/carrito.html',
 					controller: 'tienda.CarritoCtrl'
 				})
-				.when('/reporte', {
+				.state('reporte', {
+					url: '/reporte',
 					templateUrl: 'tienda/view/reporte.html',
 					controller: 'tienda.ReporteCtrl'
 				});
