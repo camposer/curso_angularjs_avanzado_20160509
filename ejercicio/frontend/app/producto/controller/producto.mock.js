@@ -18,9 +18,15 @@ describe('Suite de pruebas con mockito para producto.ProductoCtrl...', function 
     // inyectar el $httpBackend y dar respuesta (estática) a cada una de las peticiones
     // angular inyecta el $httpBackend en lugar del $http de forma automática
     productoService = JsMockito.mock($injector.get('producto.ProductoService'));
-    JsMockito.when(productoService).obtenerTodos().then(function() {
-      console.log('Ejecutó obtenerTodos');
-      expect(true).toEqual(true);
+    JsMockito.when(productoService).obtenerTodos().then(function(callback) {
+      var resp =  {
+        data: [
+          { id: 1, nombre: 'uno', precio: 1 }, 
+          { id: 2, nombre: 'dos', precio: 2 }, 
+          { id: 3, nombre: 'tres', precio: 3 }
+        ]
+      }
+      callback(resp);
     });
 
     productoCtrl = $controller('producto.ProductoCtrl', {
