@@ -9,6 +9,8 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js', // requerida
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/ngstorage/ngStorage.js',
+      'app/bower_components/jsmockito/dist/jsmockito.js', 
+      'app/bower_components/jshamcrest/build/jshamcrest.js', 
 
       // app
       'app/app.spec.js',

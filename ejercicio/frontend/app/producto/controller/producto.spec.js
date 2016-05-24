@@ -52,7 +52,7 @@ describe('Suite de pruebas para producto.ProductoCtrl...', function () {
     expect(scope.productos.length).toEqual(3);
   });
 
-  it('Cuando agrego un producto', function() {
+  it('Cuando agrego un producto correctamente', function() {
     var form = {
       nombre: { $invalid: false },
       precio: { $invalid: false }
@@ -73,7 +73,7 @@ describe('Suite de pruebas para producto.ProductoCtrl...', function () {
     expect(scope.mensajes.satisfactorio.length).toBeGreaterThan(0);
   });
 
-  it('Cuando agrego un producto nombre y precio inválido', function() {
+  it('Cuando agrego un producto con nombre y precio inválido', function() {
     var form = {
       nombre: { $invalid: true },
       precio: { $invalid: true }
@@ -88,6 +88,58 @@ describe('Suite de pruebas para producto.ProductoCtrl...', function () {
     scope.guardar(form);
 
     expect(scope.mensajes.error.length).toEqual(2);
+  });
+
+  it('Cuando modifico un producto correctamente', function() {
+    var form = {
+      nombre: { $invalid: false },
+      precio: { $invalid: false }
+    };
+
+    // datos capturados por el formulario ng-model
+    var productoId = 1;
+    var nuevoNombre = 'modificado';
+    var nuevoPrecio = 99;
+
+    scope.producto = {
+      id: productoId,
+      nombre: nuevoNombre,
+      precio: nuevoPrecio
+    };
+
+    scope.guardar(form);
+    scope.$digest();
+
+    expect(scope.producto).toEqual({});
+    expect(scope.mensajes.satisfactorio.length).toBeGreaterThan(0);
+
+    var encontrado = false;
+    for (var i in scope.productos) {
+      var prod = scope.productos[i];
+      if (prod.id == productoId) {
+        expect(prod.nombre).toEqual('modificado');
+        expect(prod.precio).toEqual(99);
+        encontrado = true;
+      }
+    }
+    expect(encontrado).toEqual(true);
+  });
+
+  it('Cuando elimino un producto correctamente', function() {
+    var numProductos = scope.productos.length;
+    scope.eliminar(1);
+    scope.$digest();
+    expect(scope.productos.length).toEqual(numProductos - 1);
+  });
+
+  it('Cuando muestro un producto correctamente', function() {
+    var prod = {
+      id: 99,
+      nombre: 'nombre',
+      precio: 99
+    };
+    scope.mostrar(prod);
+    expect(prod).toEqual(scope.producto);
   });
 
 });
