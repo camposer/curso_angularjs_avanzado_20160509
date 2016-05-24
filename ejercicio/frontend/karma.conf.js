@@ -14,10 +14,16 @@ module.exports = function(config){
 
       // app
       'app/app.spec.js',
+      'app/constants.js',
+      
       'app/comun/module.js',
       'app/comun/**/*.js',
+
       'app/producto/module.js',
-      'app/producto/**/*.js'
+      // 'app/producto/**/*.js',
+      'app/producto/service/producto.js',
+      'app/producto/controller/producto.js',
+      'app/producto/controller/producto.mock.js'
     ],
 
     autoWatch : true,
